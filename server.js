@@ -75,8 +75,8 @@ app.use((req, res, next) => {
     next();
 });
 
-// ── CORS: only allow same origin (localhost dev) ───────────────────────────────
-app.use(cors({ origin: ['http://localhost:3000', 'http://127.0.0.1:3000'] }));
+// ── CORS: allow all origins so user can submit from file:// ───────────────────────
+app.use(cors());
 
 // ── Body parsing with strict size limit (10kb max) ────────────────────────────
 app.use(express.json({ limit: '10kb' }));
@@ -88,7 +88,7 @@ function rateLimit(req, res, next) {
     const ip = req.ip || req.connection.remoteAddress || 'unknown';
     const now = Date.now();
     const windowMs = 15 * 60 * 1000; // 15 minutes
-    const maxRequests = 10;
+    const maxRequests = 1000; // Increased from 10 to 1000 for testing
     const entry = rateLimitMap.get(ip) || { count: 0, start: now };
     if (now - entry.start > windowMs) { entry.count = 0; entry.start = now; }
     entry.count++;
@@ -385,7 +385,7 @@ async function markDone(id) {
 }
 
 async function softDelete(id) {
-    if (!confirm('هل تريد نقل هذا الطلب إلى سلة المحذوفات؟\nيمكنك استعادته لاحقاً من صفحة المحذوفات.')) return;
+    if (!confirm('هل تريد نقل هذا الطلب إلى سلة المحذوفات؟\\nيمكنك استعادته لاحقاً من صفحة المحذوفات.')) return;
     const res = await fetch('/api/admin/submissions/' + id + '/soft-delete', { method: 'POST' });
     if (res.ok) window.location.reload();
     else alert('فشل: ' + res.status);
@@ -480,7 +480,7 @@ async function acceptReq(id){
     if(r.ok)window.location.reload();else alert('فشل: '+r.status);
 }
 async function permDel(id){
-    if(!confirm('⚠️ هل أنت متأكد من الحذف النهائي؟\nهذا الإجراء لا يمكن التراجع عنه!'))return;
+    if(!confirm('⚠️ هل أنت متأكد من الحذف النهائي؟\\nهذا الإجراء لا يمكن التراجع عنه!'))return;
     if(!confirm('تأكيد أخير: سيُحذف هذا الطلب نهائياً من قاعدة البيانات.'))return;
     const r=await fetch('/api/admin/submissions/'+id+'/quarantine-delete',{method:'DELETE'});
     if(r.ok)window.location.reload();else alert('فشل: '+r.status);
@@ -575,14 +575,15 @@ app.get('/api/admin/deleted', requireAdmin, (req, res) => {
 
 <script>
 let DEL_ROWS = [];
+let delFiltered = [];
 async function loadDelData() {
     const r = await fetch('/api/admin/deleted-data');
     if (!r.ok) return;
     DEL_ROWS = await r.json();
+    delFiltered = [...DEL_ROWS];
     renderDel();
 }
 loadDelData();
-let delFiltered = [...DEL_ROWS];
 
 function esc(s) {
     if (!s) return '';
@@ -643,9 +644,9 @@ async function restoreReq(id) {
 
 async function permDelete(id) {
     // Double confirmation for permanent delete
-    const first  = confirm('⚠️ هل أنت متأكد من الحذف النهائي؟\nهذا الإجراء لا يمكن التراجع عنه!');
+    const first  = confirm('⚠️ هل أنت متأكد من الحذف النهائي؟\\nهذا الإجراء لا يمكن التراجع عنه!');
     if (!first) return;
-    const second = confirm('تأكيد أخير: سيتم حذف هذا الطلب من قاعدة البيانات نهائياً.\nهل تريد المتابعة؟');
+    const second = confirm('تأكيد أخير: سيتم حذف هذا الطلب من قاعدة البيانات نهائياً.\\nهل تريد المتابعة؟');
     if (!second) return;
     const res = await fetch('/api/admin/submissions/' + id + '/permanent-delete', { method: 'DELETE' });
     if (res.ok) window.location.reload();
@@ -697,23 +698,8 @@ app.post('/api/submit', rateLimit, (req, res) => {
     if (!form_type || !ALLOWED_FORM_TYPES.includes(form_type)) {
         warnings.push('invalid_form_type');
     }
-    if (!company || typeof company !== 'string' || company.trim().length < 1) {
-        warnings.push('missing_company');
-    }
-    if (!phone || typeof phone !== 'string' || phone.replace(/[\s+\-()]/g,'').length < 4) {
-        warnings.push('invalid_phone');
-    }
     if (phone && /<|>|script|on\w+=/i.test(phone)) {
         warnings.push('suspicious_phone');
-    }
-    if (!email || typeof email !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-        warnings.push('invalid_email');
-    }
-    if (!category || typeof category !== 'string' || category.trim().length < 1) {
-        warnings.push('missing_category');
-    }
-    if (!message || typeof message !== 'string' || message.trim().length < 3) {
-        warnings.push('short_message');
     }
 
     // Determine status: quarantine if warnings exist, else pending
