@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الصيانة والتشغيل | تكامل الصناعية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0b0c10',
+                        darker: '#050507',
+                        card: '#111217',
+                        brandOrange: '#ff5722',
+                        brandBlue: '#0ea5e9',
+                        brandSilver: '#94a3b8',
+                    },
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .reveal-element { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal-element.active { opacity: 1; transform: translateY(0); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050507; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ff5722; }
+    </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-darker text-gray-200 font-sans antialiased overflow-x-hidden selection:bg-brandOrange selection:text-white">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-40 transition-all duration-300 py-4 px-6 md:px-12 shadow-lg bg-darker/95 border-b border-white/5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-black text-white tracking-wide flex items-center gap-2 group">
+                <span class="text-brandOrange group-hover:text-brandBlue transition-colors">تكامل</span> الصناعية
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium">
+                <a href="index.html" class="hover:text-brandOrange transition-colors">الرئيسية</a>
+                <a href="maintenance.html" class="text-brandOrange">الصيانة والتشغيل</a>
+                <a href="supply.html" class="hover:text-brandOrange transition-colors">التوريدات</a>
+                <a href="consulting.html" class="hover:text-brandOrange transition-colors">الاستشارات</a>
+            </div>
+            <a href="#contact" class="hidden md:inline-flex bg-gradient-to-r from-brandOrange to-brandBlue text-white px-6 py-2 rounded-full font-bold shadow-[0_0_15px_rgba(255,87,34,0.3)] hover:shadow-[0_0_25px_rgba(255,87,34,0.6)] transition-all transform hover:-translate-y-1">
+                اطلب استشارة
+            </a>
+            <button class="md:hidden text-white" id="mobile-menu-btn">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Branch Hero Section -->
+    <section class="relative pt-40 pb-20 flex items-center justify-center overflow-hidden border-b border-white/5">
+        <div class="absolute inset-0 w-full h-full opacity-20 bg-[url('assets/images/maint_hero.png')] bg-cover bg-center mix-blend-overlay"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-darker via-darker/90 to-transparent"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brandOrange/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center reveal-element active">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-brandOrange/10 rounded-full mb-8 border border-brandOrange/30">
+                <i data-lucide="settings" class="w-10 h-10 text-brandOrange"></i>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-black text-white mb-6">تكامل للصيانة والتشغيل</h1>
+            <p class="text-xl md:text-2xl text-brandSilver leading-relaxed max-w-4xl mx-auto font-light">
+                نحن لا نصلح الأعطال فحسب، بل نمنع حدوثها. نحافظ على كفاءة خطوط إنتاجك ونقلل أوقات التوقف عن العمل (Downtime) إلى الحد الأدنى لضمان استمرارية أرباحك.
+            </p>
+        </div>
+    </section>
+
+    <!-- Detailed Services -->
+    <section class="py-24 bg-card relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-element">
+                <h2 class="text-4xl font-black text-white mb-4">خدماتنا التفصيلية</h2>
+                <div class="w-24 h-1 bg-brandOrange mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-darker border border-white/5 rounded-2xl overflow-hidden hover:-translate-y-2 hover:border-brandOrange/50 transition-all duration-300 group reveal-element flex flex-col">
+                    <div class="h-48 w-full overflow-hidden">
+                        <img src="assets/images/maint_preventive.png" alt="Preventive Maintenance" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="w-14 h-14 bg-brandOrange/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brandOrange group-hover:text-white transition-colors text-brandOrange">
+                            <i data-lucide="settings-2" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">عقود الصيانة الدورية والوقائية</h3>
+                        <p class="text-gray-400 leading-relaxed text-sm flex-1">تنفيذ برامج صيانة مجدولة لحماية المعدات الصناعية الأساسية لضمان عملها بأقصى كفاءة وإطالة عمرها الافتراضي ومنع التوقف المفاجئ.</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-darker border border-white/5 rounded-2xl overflow-hidden hover:-translate-y-2 hover:border-brandOrange/50 transition-all duration-300 group reveal-element flex flex-col" style="transition-delay: 100ms;">
+                    <div class="h-48 w-full overflow-hidden">
+                        <img src="assets/images/maint_troubleshoot.png" alt="Troubleshooting" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="w-14 h-14 bg-brandOrange/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brandOrange group-hover:text-white transition-colors text-brandOrange">
+                            <i data-lucide="wrench" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">تشخيص وإصلاح الأعطال</h3>
+                        <p class="text-gray-400 leading-relaxed text-sm flex-1">تدخل سريع ودقيق لتحديد وإصلاح الأعطال في خطوط الأتمتة، والأنظمة الهوائية والهيدروليكية، للحد من فترات توقف الإنتاج.</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-darker border border-white/5 rounded-2xl overflow-hidden hover:-translate-y-2 hover:border-brandOrange/50 transition-all duration-300 group reveal-element flex flex-col" style="transition-delay: 200ms;">
+                    <div class="h-48 w-full overflow-hidden">
+                        <img src="assets/images/maint_install.png" alt="Installation" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="w-14 h-14 bg-brandOrange/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brandOrange group-hover:text-white transition-colors text-brandOrange">
+                            <i data-lucide="truck" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">خدمات الفك والتركيب للخطوط</h3>
+                        <p class="text-gray-400 leading-relaxed text-sm flex-1">نقل وتوسعة وتركيب خطوط الإنتاج الجديدة بأسس هندسية احترافية تضمن التشغيل السلس وتكامل الأنظمة منذ اليوم الأول.</p>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-darker border border-white/5 rounded-2xl overflow-hidden hover:-translate-y-2 hover:border-brandOrange/50 transition-all duration-300 group reveal-element flex flex-col">
+                    <div class="h-48 w-full overflow-hidden">
+                        <img src="assets/images/maint_operations.png" alt="Operations Contracts" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="w-14 h-14 bg-brandOrange/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brandOrange group-hover:text-white transition-colors text-brandOrange">
+                            <i data-lucide="scale" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">معايرة المعدات وأجهزة الوزن</h3>
+                        <p class="text-gray-400 leading-relaxed text-sm flex-1">ضبط دقيق لأجهزة الوزن والمعدات الصناعية الحساسة لضمان جودة المنتج النهائي وتناسقه مع أعلى معايير الجودة المعتمدة.</p>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="bg-darker border border-white/5 rounded-2xl overflow-hidden hover:-translate-y-2 hover:border-brandOrange/50 transition-all duration-300 group reveal-element flex flex-col" style="transition-delay: 100ms;">
+                    <div class="h-48 w-full overflow-hidden">
+                        <img src="assets/images/maint_efficiency.png" alt="Efficiency" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="w-14 h-14 bg-brandOrange/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brandOrange group-hover:text-white transition-colors text-brandOrange">
+                            <i data-lucide="users" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">تدريب الكوادر العمالية</h3>
+                        <p class="text-gray-400 leading-relaxed text-sm flex-1">تقديم دورات عملية لفرق التشغيل في مصنعك حول الاستخدام الآمن، طرق الصيانة الأولية، وكيفية التعامل مع الأعطال الطارئة.</p>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="bg-darker border border-white/5 rounded-2xl overflow-hidden hover:-translate-y-2 hover:border-brandOrange/50 transition-all duration-300 group reveal-element flex flex-col" style="transition-delay: 200ms;">
+                    <div class="h-48 w-full overflow-hidden">
+                        <img src="assets/images/maint_calibration.png" alt="Calibration" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="w-14 h-14 bg-brandOrange/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brandOrange group-hover:text-white transition-colors text-brandOrange">
+                            <i data-lucide="activity" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">الفحص الاستباقي للماكينات</h3>
+                        <p class="text-gray-400 leading-relaxed text-sm flex-1">تقييم حالة الماكينات (Condition Monitoring) للتنبؤ بالأعطال قبل حدوثها، مما يوفر على المصنع خسائر التوقف المفاجئ.</p>
+                    </div>
+                </div>
+                <!-- Card 7 (Extra) -->
+                <div class="bg-darker border border-white/5 rounded-2xl overflow-hidden hover:-translate-y-2 hover:border-brandOrange/50 transition-all duration-300 group reveal-element flex flex-col md:flex-row col-span-1 md:col-span-2 lg:col-span-3">
+                    <div class="w-full md:w-1/3 h-48 md:h-auto overflow-hidden shrink-0">
+                        <img src="assets/images/maint_install.png" alt="Retrofitting" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-center">
+                        <div class="w-14 h-14 bg-brandOrange/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brandOrange group-hover:text-white transition-colors text-brandOrange">
+                            <i data-lucide="refresh-cw" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">تحديث وتطوير الأنظمة القديمة (Retrofitting)</h3>
+                        <p class="text-gray-400 leading-relaxed text-sm max-w-3xl">إطالة العمر الافتراضي لخطوط الإنتاج المتقادمة من خلال تحديث أجزائها الميكانيكية وإضافة تقنيات ذكية لرفع كفاءتها وتقليل استهلاكها للطاقة، مما يغنيك عن التكلفة الباهظة لاستبدال الخط بالكامل.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Work -->
+    <section class="py-24 bg-darker border-t border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-6 reveal-element">
+            <div class="text-center mb-16">
+                <h3 class="text-4xl font-black text-white mb-4">آلية العمل</h3>
+                <p class="text-brandSilver">لأن المصانع تحب النظام، هذه هي الخطوات التي نتخذها عند الاتصال بنا:</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 relative">
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-white/10 -z-10 -translate-y-1/2"></div>
+                
+                <div class="bg-card px-8 py-6 rounded-2xl border border-brandOrange shadow-[0_0_20px_rgba(255,87,34,0.15)] flex flex-col items-center gap-4 w-full md:w-1/4">
+                    <span class="w-12 h-12 rounded-full bg-brandOrange text-white flex items-center justify-center font-bold text-xl">1</span>
+                    <h4 class="font-bold text-white text-lg">الفحص والتقييم</h4>
+                    <p class="text-sm text-gray-400 text-center">زيارة ميدانية لتشخيص حالة الخطوط والمعدات بدقة.</p>
+                </div>
+                <div class="bg-card px-8 py-6 rounded-2xl border border-white/10 flex flex-col items-center gap-4 w-full md:w-1/4">
+                    <span class="w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center font-bold text-xl">2</span>
+                    <h4 class="font-bold text-white text-lg">الخطة والتسعير</h4>
+                    <p class="text-sm text-gray-400 text-center">تقديم تقرير فني شامل مع خطة العمل والتكلفة.</p>
+                </div>
+                <div class="bg-card px-8 py-6 rounded-2xl border border-white/10 flex flex-col items-center gap-4 w-full md:w-1/4">
+                    <span class="w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center font-bold text-xl">3</span>
+                    <h4 class="font-bold text-white text-lg">التنفيذ</h4>
+                    <p class="text-sm text-gray-400 text-center">إجراء الإصلاحات أو الصيانة المجدولة باحترافية.</p>
+                </div>
+                <div class="bg-card px-8 py-6 rounded-2xl border border-brandBlue/30 flex flex-col items-center gap-4 w-full md:w-1/4">
+                    <span class="w-12 h-12 rounded-full bg-brandBlue text-white flex items-center justify-center font-bold text-xl">4</span>
+                    <h4 class="font-bold text-white text-lg">الاختبار والتسليم</h4>
+                    <p class="text-sm text-gray-400 text-center">اختبار الماكينات لضمان عملها بكامل طاقتها.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form (CTA) -->
+    <section id="contact" class="py-24 bg-card relative border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <div class="bg-gradient-to-br from-darker to-card border border-brandOrange/30 rounded-3xl p-8 md:p-12 shadow-2xl reveal-element">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-black text-white mb-4">هل تواجه تحديات في خطوط الإنتاج؟</h2>
+                    <p class="text-brandSilver">اطلب زيارة فنية الآن وسيقوم مهندسونا بالاستجابة الفورية.</p>
+                </div>
+
+                <form class="space-y-6" id="contact-form">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">اسم المصنع</label>
+                            <input type="text" name="company" class="w-full bg-darker border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandOrange transition-colors" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">رقم الهاتف</label>
+                            <div class="flex gap-2" dir="ltr">
+                                <select name="country_code" id="country_code_select" onchange="handleCountryCodeChange(this)" class="w-1/3 bg-darker border border-white/10 rounded-xl px-2 py-3 text-white focus:outline-none focus:border-brandOrange transition-colors appearance-none text-center">
+                                    <option value="+966" selected>🇸🇦 +966</option>
+                                    <option value="+971">🇦🇪 +971</option>
+                                    <option value="+965">🇰🇼 +965</option>
+                                    <option value="+973">🇧🇭 +973</option>
+                                    <option value="+974">🇶🇦 +974</option>
+                                    <option value="+968">🇴🇲 +968</option>
+                                    <option value="other">أخرى (أدخل الرمز)</option>
+                        </select>
+                                <input type="text" name="custom_country_code" id="custom_country_code" placeholder="+XX" 
+                                style="display:none;" 
+                                class="w-1/3 bg-darker border border-white/10 rounded-xl px-2 py-3 text-white focus:outline-none focus:border-brandOrange transition-colors text-center">
+                                <input type="tel" name="phone" placeholder="XXX XXX XXXX" pattern="[0-9+\-\s]{5,20}" title="يرجى إدخال رقم هاتف صحيح (5-20 رقم)" class="w-2/3 bg-darker border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandOrange transition-colors" required>
+                            </div>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-400 mb-2">البريد الإلكتروني</label>
+                            <input type="email" name="email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" title="Please enter a valid email address" class="w-full bg-darker border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandOrange transition-colors" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">نوع المشكلة</label>
+                        <select name="category" class="w-full bg-darker border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandOrange transition-colors appearance-none" required>
+                            <option value="">اختر...</option>
+                            <option>عطل طارئ</option>
+                            <option>طلب عقد صيانة دورية</option>
+                            <option>طلب فحص وتقييم خط إنتاج</option>
+                            <option>استشارة فنية</option>
+                            <option value="أخرى">أخرى</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brandOrange text-white font-bold text-lg py-4 rounded-xl shadow-[0_0_20px_rgba(255,87,34,0.3)] hover:shadow-[0_0_30px_rgba(255,87,34,0.5)] transition-all transform hover:-translate-y-1">
+                        اطلب زيارة فنية الآن
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-darker border-t border-white/5 py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-2xl font-black text-white mb-4"><span class="text-brandOrange">تكامل</span> الصناعية</h2>
+            <p class="text-gray-500 mb-8">نحول التحديات الهندسية إلى حلول صناعية مبتكرة.</p>
+            <p class="text-sm text-gray-600">© 2026 شركة تكامل للحلول الصناعية. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('shadow-lg', 'bg-darker/95');
+            navbar.classList.remove('bg-darker/80');
+        } else {
+            navbar.classList.remove('shadow-lg', 'bg-darker/95');
+            navbar.classList.add('bg-darker/80');
+        }
+    });
+
+    const revealElements = document.querySelectorAll('.reveal-element');
+    function triggerReveals() {
+        const windowHeight = window.innerHeight;
+        const revealPoint = 100;
+        revealElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            if (elementTop < windowHeight - revealPoint) {
+                element.classList.add('active');
+            }
+        });
+    }
+    window.addEventListener('scroll', triggerReveals);
+    triggerReveals(); // initial trigger
+
+    const form = document.getElementById('contact-form');
+    if(form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            const originalClass = btn.className;
+            btn.innerHTML = 'جاري الإرسال...';
+            
+            const formData = new FormData(form);
+            const data = {
+                form_type: 'maintenance',
+                name: formData.get('company') || '',
+                company: formData.get('company') || '',
+                phone: (formData.get('country_code') || '') + ' ' + (formData.get('phone') || ''),
+                email: formData.get('email') || '',
+                category: formData.get('category') || '',
+                message: formData.get('message') || ''
+            };
+
+            try {
+                const response = await fetch('http://localhost:3000/api/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                if(response.ok) {
+                    const result = await response.json().catch(() => ({}));
+                    const reqId = result.id || '';
+                    window.location.href = window.location.pathname + '?submitted=1&id=' + reqId + '#contact';
+                } else {
+                    throw new Error('Server error');
+                }
+            } catch (err) {
+                console.error(err);
+                btn.innerHTML = 'حدث خطأ في الاتصال بالسيرفر. تأكد من تشغيل Node.js';
+                setTimeout(() => { btn.innerHTML = originalText; btn.className = originalClass; }, 3000);
+            }
+        });
+
+    }
+});
+    </script>
+    <script>lucide.createIcons();</script>
+
+    <script>
+    // Country code dropdown: show custom input when "other" is selected
+    document.addEventListener('DOMContentLoaded', function() {
+        const codeSelect = document.getElementById('country_code_select');
+        const customInput = document.getElementById('custom_country_code');
+        
+        if (codeSelect && customInput) {
+            codeSelect.addEventListener('change', function() {
+                if (this.value === 'other') {
+                    codeSelect.style.display = 'none';
+                    customInput.style.display = '';
+                    customInput.focus();
+                }
+            });
+
+            // Allow clicking phone field to go back to dropdown
+            customInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    codeSelect.value = '+966';
+                    codeSelect.style.display = '';
+                    customInput.style.display = 'none';
+                    customInput.value = '';
+                }
+            });
+        }
+
+        // Patch form submission to use custom code value if "other" was selected
+        const form = document.getElementById('contact-form');
+        if (form && codeSelect && customInput) {
+            form.addEventListener('submit', function() {
+                if (codeSelect.style.display === 'none' && customInput.value.trim()) {
+                    codeSelect.value = customInput.value.trim();
+                    codeSelect.style.display = '';
+                }
+            }, true); // capture phase runs before the async submit handler
+        }
+    });
+    </script>
+
+    <script>
+    // Show success banner after form submission redirect
+    (function() {
+        var params = new URLSearchParams(window.location.search);
+        if (params.get('submitted') === '1') {
+            var reqId = params.get('id') || '';
+            var banner = document.createElement('div');
+            banner.id = 'submission-banner';
+            banner.setAttribute('style', [
+                'position:fixed', 'top:0', 'left:0', 'right:0', 'z-index:9999',
+                'display:flex', 'align-items:center', 'justify-content:center',
+                'gap:12px', 'padding:16px 24px',
+                'background:linear-gradient(90deg,#16a34a,#15803d)',
+                'color:#fff', 'font-family:Tajawal,sans-serif',
+                'font-size:1.1rem', 'font-weight:700',
+                'box-shadow:0 4px 24px rgba(0,0,0,0.35)',
+                'animation:slideDown 0.4s ease'
+            ].join(';'));
+
+            var reqBadge = reqId
+                ? ' رقم طلبك هو: <span style="background:rgba(255,255,255,0.25);padding:2px 14px;border-radius:20px;margin-right:8px;">#' + reqId + '</span>'
+                : '';
+
+            var closeBtn = document.createElement('button');
+            closeBtn.textContent = '×';
+            closeBtn.setAttribute('style', 'margin-right:auto;background:rgba(0,0,0,0.2);border:none;color:#fff;cursor:pointer;padding:2px 12px;border-radius:20px;font-size:1.2rem;line-height:1;');
+            closeBtn.onclick = function() { banner.remove(); };
+
+            banner.innerHTML = '✅ تم إرسال طلبك بنجاح!' + reqBadge;
+            banner.appendChild(closeBtn);
+            document.body.prepend(banner);
+
+            // Add slide-down animation
+            var style = document.createElement('style');
+            style.textContent = '@keyframes slideDown{from{transform:translateY(-100%);opacity:0}to{transform:none;opacity:1}}';
+            document.head.appendChild(style);
+
+            // Auto-remove after 8 seconds
+            setTimeout(function() { if (banner.parentNode) banner.remove(); }, 8000);
+
+            // Clean URL so hard-refresh doesn't re-show
+            history.replaceState({}, '', window.location.pathname + '#contact');
+        }
+    })();
+    </script>
+</body>
+</html>

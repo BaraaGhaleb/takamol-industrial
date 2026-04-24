@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التوريدات الصناعية | تكامل الصناعية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0b0c10',
+                        darker: '#050507',
+                        card: '#111217',
+                        brandOrange: '#ff5722',
+                        brandBlue: '#0ea5e9',
+                        brandSilver: '#94a3b8',
+                    },
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .reveal-element { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal-element.active { opacity: 1; transform: translateY(0); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050507; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0ea5e9; }
+    </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-darker text-gray-200 font-sans antialiased overflow-x-hidden selection:bg-brandBlue selection:text-white">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-40 transition-all duration-300 py-4 px-6 md:px-12 shadow-lg bg-darker/95 border-b border-white/5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-black text-white tracking-wide flex items-center gap-2 group">
+                <span class="text-brandOrange group-hover:text-brandBlue transition-colors">تكامل</span> الصناعية
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium">
+                <a href="index.html" class="hover:text-brandOrange transition-colors">الرئيسية</a>
+                <a href="maintenance.html" class="hover:text-brandOrange transition-colors">الصيانة والتشغيل</a>
+                <a href="supply.html" class="text-brandBlue">التوريدات</a>
+                <a href="consulting.html" class="hover:text-brandOrange transition-colors">الاستشارات</a>
+            </div>
+            <a href="#contact" class="hidden md:inline-flex bg-gradient-to-r from-brandOrange to-brandBlue text-white px-6 py-2 rounded-full font-bold shadow-[0_0_15px_rgba(255,87,34,0.3)] hover:shadow-[0_0_25px_rgba(255,87,34,0.6)] transition-all transform hover:-translate-y-1">
+                اطلب استشارة
+            </a>
+            <button class="md:hidden text-white" id="mobile-menu-btn">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Branch Hero Section -->
+    <section class="relative pt-40 pb-20 flex items-center justify-center overflow-hidden border-b border-white/5">
+        <div class="absolute inset-0 w-full h-full opacity-20 bg-[url('assets/images/supply_hero.png')] bg-cover bg-center mix-blend-overlay"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-darker via-darker/90 to-transparent"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brandBlue/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center reveal-element active">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-brandBlue/10 rounded-full mb-8 border border-brandBlue/30">
+                <i data-lucide="package-search" class="w-10 h-10 text-brandBlue"></i>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-black text-white mb-6">تكامل للتوريدات الصناعية</h1>
+            <p class="text-xl md:text-2xl text-brandSilver leading-relaxed max-w-4xl mx-auto font-light">
+                نربط مصنعك بأفضل التقنيات والمواد العالمية. نوفر لك سلسلة إمداد موثوقة للآلات والمواد الخام، وندعم كل توريد بخدمات ما بعد البيع الهندسية.
+            </p>
+        </div>
+    </section>
+
+    <!-- Machinery Sectors -->
+    <section class="py-24 bg-card relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-element">
+                <h2 class="text-4xl font-black text-white mb-4">توريد الآلات وخطوط الإنتاج</h2>
+                <div class="w-24 h-1 bg-brandBlue mx-auto rounded-full mb-8"></div>
+                <p class="text-brandSilver max-w-3xl mx-auto text-lg">نحن لا نبيع آلات فحسب، بل نصمم حلولاً تزيد من سعتك الإنتاجية. نحن الوكيل والمورد الاستراتيجي لمجموعة من أهم مصنعي الآلات في العالم.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Sector 1 -->
+                <div class="bg-darker border border-white/5 rounded-2xl overflow-hidden hover:-translate-y-2 hover:border-brandBlue/50 transition-all duration-300 group reveal-element flex flex-col">
+                    <div class="h-48 w-full overflow-hidden">
+                        <img src="assets/images/supply_plastic.png" alt="Plastics Industry" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+                            <i data-lucide="disc" class="text-brandBlue w-6 h-6"></i> البلاستيك
+                        </h3>
+                        <ul class="space-y-3 text-gray-400 text-sm flex-1">
+                            <li class="flex items-start gap-2"><div class="mt-1 w-1.5 h-1.5 rounded-full bg-brandBlue shrink-0"></div> خطوط البثق للأنابيب البلاستيكية بكافة أنواعها.</li>
+                            <li class="flex items-start gap-2"><div class="mt-1 w-1.5 h-1.5 rounded-full bg-brandBlue shrink-0"></div> آلات حقن وتشكيل البلاستيك للعبوات.</li>
+                            <li class="flex items-start gap-2"><div class="mt-1 w-1.5 h-1.5 rounded-full bg-brandBlue shrink-0"></div> خطوط إعادة التدوير المتكاملة.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Sector 2 -->
+                <div class="bg-darker border border-white/5 rounded-2xl overflow-hidden hover:-translate-y-2 hover:border-brandBlue/50 transition-all duration-300 group reveal-element flex flex-col" style="transition-delay: 100ms;">
+                    <div class="h-48 w-full overflow-hidden">
+                        <img src="assets/images/supply_food.png" alt="Food Processing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+                            <i data-lucide="coffee" class="text-brandBlue w-6 h-6"></i> الأغذية والمشروبات
+                        </h3>
+                        <ul class="space-y-3 text-gray-400 text-sm flex-1">
+                            <li class="flex items-start gap-2"><div class="mt-1 w-1.5 h-1.5 rounded-full bg-brandBlue shrink-0"></div> خطوط تعبئة السوائل (عصائر، زيوت، مياه).</li>
+                            <li class="flex items-start gap-2"><div class="mt-1 w-1.5 h-1.5 rounded-full bg-brandBlue shrink-0"></div> آلات التعبئة والتغليف الجاف للحبوب والمكسرات.</li>
+                            <li class="flex items-start gap-2"><div class="mt-1 w-1.5 h-1.5 rounded-full bg-brandBlue shrink-0"></div> خطوط الإنتاج الآلية لمعالجة الأغذية.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Sector 3 -->
+                <div class="bg-darker border border-white/5 rounded-2xl overflow-hidden hover:-translate-y-2 hover:border-brandBlue/50 transition-all duration-300 group reveal-element flex flex-col" style="transition-delay: 200ms;">
+                    <div class="h-48 w-full overflow-hidden">
+                        <img src="assets/images/supply_chemical.png" alt="Chemical Industry" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+                            <i data-lucide="flask-conical" class="text-brandBlue w-6 h-6"></i> الكيماويات
+                        </h3>
+                        <ul class="space-y-3 text-gray-400 text-sm flex-1">
+                            <li class="flex items-start gap-2"><div class="mt-1 w-1.5 h-1.5 rounded-full bg-brandBlue shrink-0"></div> خطوط إنتاج المنظفات (سائلة وبودرة).</li>
+                            <li class="flex items-start gap-2"><div class="mt-1 w-1.5 h-1.5 rounded-full bg-brandBlue shrink-0"></div> خلاطات ومعامل إنتاج الدهانات والصمغ.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Sector 4 -->
+                <div class="bg-darker border border-white/5 rounded-2xl overflow-hidden hover:-translate-y-2 hover:border-brandBlue/50 transition-all duration-300 group reveal-element flex flex-col">
+                    <div class="h-48 w-full overflow-hidden">
+                        <img src="assets/images/supply_construct.png" alt="Construction Materials" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+                            <i data-lucide="hard-hat" class="text-brandBlue w-6 h-6"></i> مواد البناء
+                        </h3>
+                        <ul class="space-y-3 text-gray-400 text-sm flex-1">
+                            <li class="flex items-start gap-2"><div class="mt-1 w-1.5 h-1.5 rounded-full bg-brandBlue shrink-0"></div> آلات التشكيل بالدرفلة لأسقف الصاج.</li>
+                            <li class="flex items-start gap-2"><div class="mt-1 w-1.5 h-1.5 rounded-full bg-brandBlue shrink-0"></div> مصانع الطابوق الإسمنتي والانترلوك المدمجة.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Sector 5 -->
+                <div class="bg-darker border border-white/5 rounded-2xl overflow-hidden hover:-translate-y-2 hover:border-brandBlue/50 transition-all duration-300 group reveal-element flex flex-col" style="transition-delay: 100ms;">
+                    <div class="h-48 w-full overflow-hidden">
+                        <img src="assets/images/supply_paper.png" alt="Paper Industry" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+                            <i data-lucide="file-text" class="text-brandBlue w-6 h-6"></i> الورق
+                        </h3>
+                        <ul class="space-y-3 text-gray-400 text-sm flex-1">
+                            <li class="flex items-start gap-2"><div class="mt-1 w-1.5 h-1.5 rounded-full bg-brandBlue shrink-0"></div> خطوط الكرتون المضلع.</li>
+                            <li class="flex items-start gap-2"><div class="mt-1 w-1.5 h-1.5 rounded-full bg-brandBlue shrink-0"></div> آلات إنتاج الورق الصحي (المناديل).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-brandBlue/10 p-6 rounded-2xl border border-brandBlue/30 reveal-element text-center">
+                <p class="text-white font-semibold flex flex-col md:flex-row items-center justify-center gap-4">
+                    <i data-lucide="info" class="w-6 h-6 text-brandBlue"></i>
+                    لم تجد خط الإنتاج الذي تبحث عنه؟ نقوم بتوريد خطوط إنتاج مخصصة (Custom-built) لتلائم منتجك الفريد!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Raw Materials -->
+    <section class="py-24 bg-darker border-t border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                <div class="lg:w-1/2 reveal-element">
+                    <h2 class="text-4xl font-black text-white mb-6">توريد المواد الخام</h2>
+                    <p class="text-brandSilver text-lg mb-8 leading-relaxed">
+                        نضمن لك سلسلة إمداد مستقرة وجودة موثوقة لأهم المواد الخام التي تحتاجها الصناعات المختلفة، من خلال شبكة موردين عالمية تم تدقيقها هندسياً.
+                    </p>
+                    <div class="rounded-2xl overflow-hidden shadow-2xl border border-white/10 hidden lg:block">
+                        <img src="assets/images/supply_raw.png" alt="Raw Materials" class="w-full h-64 object-cover">
+                    </div>
+                </div>
+                <div class="lg:w-1/2 reveal-element">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-card p-4 rounded-xl border border-white/5 hover:border-brandBlue/40 transition-colors flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-brandBlue"></div>
+                            <div>
+                                <span class="block text-white font-bold mb-1">حبيبات البلاستيك</span>
+                                <span class="text-xs text-gray-400">Polymers (PE, PP, PVC)</span>
+                            </div>
+                        </div>
+                        <div class="bg-card p-4 rounded-xl border border-white/5 hover:border-brandBlue/40 transition-colors flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-brandBlue"></div>
+                            <div>
+                                <span class="block text-white font-bold mb-1">ثاني أكسيد التيتانيوم</span>
+                                <span class="text-xs text-gray-400">للدهانات والطلاءات</span>
+                            </div>
+                        </div>
+                        <div class="bg-card p-4 rounded-xl border border-white/5 hover:border-brandBlue/40 transition-colors flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-brandBlue"></div>
+                            <div>
+                                <span class="block text-white font-bold mb-1">اليوريا وأسود الكربون</span>
+                                <span class="text-xs text-gray-400">للزراعة وصناعات المطاط</span>
+                            </div>
+                        </div>
+                        <div class="bg-card p-4 rounded-xl border border-white/5 hover:border-brandBlue/40 transition-colors flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-brandBlue"></div>
+                            <div>
+                                <span class="block text-white font-bold mb-1">المذيبات والراتنجات</span>
+                                <span class="text-xs text-gray-400">للألياف الزجاجية والكيماويات</span>
+                            </div>
+                        </div>
+                        <div class="bg-card p-4 rounded-xl border border-white/5 hover:border-brandBlue/40 transition-colors flex items-center gap-3 col-span-2">
+                            <div class="w-2 h-2 rounded-full bg-brandBlue"></div>
+                            <div>
+                                <span class="block text-white font-bold mb-1">لفائف الصلب والإضافات الغذائية والزيوت</span>
+                                <span class="text-xs text-gray-400">تغطية شاملة لجميع الاحتياجات التشغيلية للمصانع والإنشاءات المعدنية.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Takamol Edge -->
+    <section class="py-24 bg-card border-t border-white/5 relative">
+        <div class="max-w-4xl mx-auto px-6 text-center reveal-element">
+            <h3 class="text-3xl font-black text-white mb-10">لماذا تشتري عبر "تكامل"؟</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-right">
+                <div class="p-6">
+                    <i data-lucide="shield-check" class="w-12 h-12 text-brandBlue mb-4"></i>
+                    <h4 class="text-xl font-bold text-white mb-2">الدعم الفني المباشر</h4>
+                    <p class="text-gray-400 text-sm">نحن لسنا مجرد وسيط تجاري، بل نحن مهندسون. نقوم بتشغيل الماكينة التي نبيعها، وندرب عمالك عليها.</p>
+                </div>
+                <div class="p-6 border-t md:border-t-0 md:border-r border-white/10">
+                    <i data-lucide="package" class="w-12 h-12 text-brandBlue mb-4"></i>
+                    <h4 class="text-xl font-bold text-white mb-2">توفر قطع الغيار</h4>
+                    <p class="text-gray-400 text-sm">نضمن لك سلسلة إمداد مستمرة لقطع الغيار الاستهلاكية لأي آلة نقوم بتوريدها.</p>
+                </div>
+                <div class="p-6 border-t md:border-t-0 md:border-r border-white/10">
+                    <i data-lucide="check-square" class="w-12 h-12 text-brandBlue mb-4"></i>
+                    <h4 class="text-xl font-bold text-white mb-2">الفحص قبل الشحن</h4>
+                    <p class="text-gray-400 text-sm">نقوم بفحص الماكينات في بلد المنشأ للتأكد من مطابقتها للمواصفات السعودية والعالمية قبل وصولها إليك.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form (CTA) -->
+    <section id="contact" class="py-24 bg-darker relative border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <div class="bg-gradient-to-br from-darker to-card border border-brandBlue/30 rounded-3xl p-8 md:p-12 shadow-2xl reveal-element">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-black text-white mb-4">اطلب تسعيراً اليوم</h2>
+                    <p class="text-brandSilver">فريقنا جاهز لتوريد الماكينات أو المواد الخام التي تحتاجها بسرعة وجودة.</p>
+                </div>
+
+                <form class="space-y-6" id="contact-form">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">اسم الشركة</label>
+                            <input type="text" name="company" class="w-full bg-darker border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandBlue transition-colors" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">رقم الهاتف</label>
+                            <div class="flex gap-2" dir="ltr">
+                                <select name="country_code" id="country_code_select" onchange="handleCountryCodeChange(this)" class="w-1/3 bg-darker border border-white/10 rounded-xl px-2 py-3 text-white focus:outline-none focus:border-brandOrange transition-colors appearance-none text-center">
+                                    <option value="+966" selected>🇸🇦 +966</option>
+                                    <option value="+971">🇦🇪 +971</option>
+                                    <option value="+965">🇰🇼 +965</option>
+                                    <option value="+973">🇧🇭 +973</option>
+                                    <option value="+974">🇶🇦 +974</option>
+                                    <option value="+968">🇴🇲 +968</option>
+                                    <option value="other">أخرى (أدخل الرمز)</option>
+                        </select>
+                                <input type="text" name="custom_country_code" id="custom_country_code" placeholder="+XX" 
+                                style="display:none;" 
+                                class="w-1/3 bg-darker border border-white/10 rounded-xl px-2 py-3 text-white focus:outline-none focus:border-brandOrange transition-colors text-center">
+                                <input type="tel" name="phone" placeholder="XXX XXX XXXX" pattern="[0-9+\-\s]{5,20}" title="يرجى إدخال رقم هاتف صحيح (5-20 رقم)" class="w-2/3 bg-darker border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandBlue transition-colors" required>
+                            </div>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-400 mb-2">البريد الإلكتروني</label>
+                            <input type="email" name="email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" title="Please enter a valid email address" class="w-full bg-darker border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandBlue transition-colors" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">نوع التوريد المطلوب</label>
+                        <select name="category" class="w-full bg-darker border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandBlue transition-colors appearance-none" required>
+                            <option value="">اختر...</option>
+                            <option>آلات وخطوط إنتاج</option>
+                            <option>مواد خام</option>
+                            <option>قطع غيار صناعية</option>
+                            <option value="أخرى">أخرى</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">مواصفات الطلب (إن وجدت)</label>
+                        <textarea name="message" rows="4" class="w-full bg-darker border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandBlue transition-colors" required></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brandBlue text-white font-bold text-lg py-4 rounded-xl shadow-[0_0_20px_rgba(14,165,233,0.3)] hover:shadow-[0_0_30px_rgba(14,165,233,0.5)] transition-all transform hover:-translate-y-1">
+                        إرسال الطلب
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-card border-t border-white/5 py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-2xl font-black text-white mb-4"><span class="text-brandOrange">تكامل</span> الصناعية</h2>
+            <p class="text-gray-500 mb-8">نحول التحديات الهندسية إلى حلول صناعية مبتكرة.</p>
+            <p class="text-sm text-gray-600">© 2026 شركة تكامل للحلول الصناعية. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('shadow-lg', 'bg-darker/95');
+            navbar.classList.remove('bg-darker/80');
+        } else {
+            navbar.classList.remove('shadow-lg', 'bg-darker/95');
+            navbar.classList.add('bg-darker/80');
+        }
+    });
+
+    const revealElements = document.querySelectorAll('.reveal-element');
+    function triggerReveals() {
+        const windowHeight = window.innerHeight;
+        const revealPoint = 100;
+        revealElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            if (elementTop < windowHeight - revealPoint) {
+                element.classList.add('active');
+            }
+        });
+    }
+    window.addEventListener('scroll', triggerReveals);
+    triggerReveals(); // initial trigger
+
+    const form = document.getElementById('contact-form');
+    if(form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            const originalClass = btn.className;
+            btn.innerHTML = 'جاري الإرسال...';
+            
+            const formData = new FormData(form);
+            const data = {
+                form_type: 'supply',
+                name: formData.get('company') || '',
+                company: formData.get('company') || '',
+                phone: (formData.get('country_code') || '') + ' ' + (formData.get('phone') || ''),
+                email: formData.get('email') || '',
+                category: formData.get('category') || '',
+                message: formData.get('message') || ''
+            };
+
+            try {
+                const response = await fetch('http://localhost:3000/api/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                if(response.ok) {
+                    const result = await response.json().catch(() => ({}));
+                    const reqId = result.id || '';
+                    window.location.href = window.location.pathname + '?submitted=1&id=' + reqId + '#contact';
+                } else {
+                    throw new Error('Server error');
+                }
+            } catch (err) {
+                console.error(err);
+                btn.innerHTML = 'حدث خطأ في الاتصال بالسيرفر. تأكد من تشغيل Node.js';
+                setTimeout(() => { btn.innerHTML = originalText; btn.className = originalClass; }, 3000);
+            }
+        });
+
+    }
+});
+    </script>
+    <script>lucide.createIcons();</script>
+
+    <script>
+    // Country code dropdown: show custom input when "other" is selected
+    document.addEventListener('DOMContentLoaded', function() {
+        const codeSelect = document.getElementById('country_code_select');
+        const customInput = document.getElementById('custom_country_code');
+        
+        if (codeSelect && customInput) {
+            codeSelect.addEventListener('change', function() {
+                if (this.value === 'other') {
+                    codeSelect.style.display = 'none';
+                    customInput.style.display = '';
+                    customInput.focus();
+                }
+            });
+
+            // Allow clicking phone field to go back to dropdown
+            customInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    codeSelect.value = '+966';
+                    codeSelect.style.display = '';
+                    customInput.style.display = 'none';
+                    customInput.value = '';
+                }
+            });
+        }
+
+        // Patch form submission to use custom code value if "other" was selected
+        const form = document.getElementById('contact-form');
+        if (form && codeSelect && customInput) {
+            form.addEventListener('submit', function() {
+                if (codeSelect.style.display === 'none' && customInput.value.trim()) {
+                    codeSelect.value = customInput.value.trim();
+                    codeSelect.style.display = '';
+                }
+            }, true); // capture phase runs before the async submit handler
+        }
+    });
+    </script>
+
+    <script>
+    // Show success banner after form submission redirect
+    (function() {
+        var params = new URLSearchParams(window.location.search);
+        if (params.get('submitted') === '1') {
+            var reqId = params.get('id') || '';
+            var banner = document.createElement('div');
+            banner.id = 'submission-banner';
+            banner.setAttribute('style', [
+                'position:fixed', 'top:0', 'left:0', 'right:0', 'z-index:9999',
+                'display:flex', 'align-items:center', 'justify-content:center',
+                'gap:12px', 'padding:16px 24px',
+                'background:linear-gradient(90deg,#16a34a,#15803d)',
+                'color:#fff', 'font-family:Tajawal,sans-serif',
+                'font-size:1.1rem', 'font-weight:700',
+                'box-shadow:0 4px 24px rgba(0,0,0,0.35)',
+                'animation:slideDown 0.4s ease'
+            ].join(';'));
+
+            var reqBadge = reqId
+                ? ' رقم طلبك هو: <span style="background:rgba(255,255,255,0.25);padding:2px 14px;border-radius:20px;margin-right:8px;">#' + reqId + '</span>'
+                : '';
+
+            var closeBtn = document.createElement('button');
+            closeBtn.textContent = '×';
+            closeBtn.setAttribute('style', 'margin-right:auto;background:rgba(0,0,0,0.2);border:none;color:#fff;cursor:pointer;padding:2px 12px;border-radius:20px;font-size:1.2rem;line-height:1;');
+            closeBtn.onclick = function() { banner.remove(); };
+
+            banner.innerHTML = '✅ تم إرسال طلبك بنجاح!' + reqBadge;
+            banner.appendChild(closeBtn);
+            document.body.prepend(banner);
+
+            // Add slide-down animation
+            var style = document.createElement('style');
+            style.textContent = '@keyframes slideDown{from{transform:translateY(-100%);opacity:0}to{transform:none;opacity:1}}';
+            document.head.appendChild(style);
+
+            // Auto-remove after 8 seconds
+            setTimeout(function() { if (banner.parentNode) banner.remove(); }, 8000);
+
+            // Clean URL so hard-refresh doesn't re-show
+            history.replaceState({}, '', window.location.pathname + '#contact');
+        }
+    })();
+    </script>
+</body>
+</html>
